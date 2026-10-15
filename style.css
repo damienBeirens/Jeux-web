@@ -1,0 +1,679 @@
+:root {
+  --interfaceHeight: 75vh;
+  --interfaceWidth: 75vw;
+}
+::-webkit-scrollbar {
+  overflow: hidden;
+}
+html, body {
+  overflow: hidden;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f080;
+}
+#bodyClone {
+  display: none;
+  position: absolute;
+  height: 80vh;
+  width: 75vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(5px);
+  background: #00000080;
+  z-index: 1;
+}
+#rotate-warning {
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+#svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#textRotateTelephone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3vh;
+}
+#interfaceGameOver {
+  display: none;
+  position: absolute;
+  width: 75vw;
+  height: 80vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+  z-index: 12;
+  user-select: none;
+}
+#backgroundGameOver{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+}
+
+#gameOver{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 25%;
+  background: linear-gradient(to right, yellow 0%, orange 30%, red 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 10vh;
+  display: inline;
+}
+#btnQuit {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 55%;
+  width: 100%;
+  height: 15%;
+  text-align: center;
+}
+#quit{
+  position: relative;
+  margin-right: 10%;
+  width: 10%;
+  height: 80%;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #ff0606, #ff3333);
+  font-size: large;
+  pointer-events: pointer;
+}
+#restart{
+  position: relative;
+  width: 10%;
+  height: 80%;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #0000ff, #2a2aff);
+  font-size: large;
+  pointer-events: pointer;
+}
+.playHover::after {
+  animation: playButtonBottom 1s ease-in-out forwards;
+}
+.closeHover::after {
+  animation: closeButtonTop 1s ease-in-out forwards;
+}
+.closeHover::before {
+  animation: closeButtonBottom 1s ease-in-out forwards;
+}
+.openInterface {
+  animation: openInterface 0.5s ease-out forwards;
+}
+.closeInterface {
+  animation: closeInterface 0.5s ease-out forwards;
+}
+.openTextPause {
+  animation: openTextPause 0.5s ease-out forwards;
+}
+.closeTextPause {
+  animation: closeTextPause 0.5s ease-out forwards;
+}
+.rotateOpen {
+  animation: rotateOpen 1.5s ease-in-out forwards;
+}
+.rotateClose {
+  animation: rotateClose 1.5s ease-in-out forwards;
+}
+#interface {
+  position: fixed;
+  border: 1px solid black;
+  width: 70vw;
+  height: 70vh;
+  border-radius: 5px;
+  background-image: url("./image/wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  animation: openInterface 0.5s ease-out forwards;
+}
+#interfaceShop {
+  display: none;
+  background-color: red;
+  position: fixed;
+  border: 1px solid black;
+  width: 70vw;
+  height: 70vh;
+  border-radius: 5px;
+}
+#sliderShop {
+  width: 95%;
+  height: 1%;
+  margin: 0 2.5%;
+  background: black;
+  border-radius: 5px;
+  overflow: hidden;
+}
+#sliderPush {
+  width: 10%;
+  height: 100%;
+  background: white;
+  border-radius: 5px;
+}
+#item {
+    display:flex;
+    transition: transform 0.1s linear;
+}
+#sliderShop {
+    position: absolute;
+    bottom: 0%;
+}
+#interfaceStat {
+  display: none;
+  background-color: green;
+  position: fixed;
+  border: 1px solid black;
+  width: 70vw;
+  height: 70vh;
+  border-radius: 5px;
+}
+#sliderHp{
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 25.5%;
+  top: 50%;
+  pointer-events: none;
+}
+#sliderAttack{
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 50%;
+  right: 13.5%;
+  pointer-events: none;
+}
+#sliderSpeed {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  pointer-events: none;
+}
+#hp, #attack, #speed {
+  user-select: none;
+}
+#exp {
+  display: none;
+  position: FIXED;
+  top: 0px;
+  right: 0px;
+  z-index: 11;
+  width: 10vw;
+  padding: 4px;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
+  border: 1px solid black;
+  transform: translate(-50%, -105%);
+  user-select: none;
+}
+#lvl {
+  position: relative;
+  text-align: center;
+  color: rgb(4, 4, 5);
+  background: none;
+  z-index: 10;
+  font-size: 3Vh;
+  cursor: default;
+  user-select: none;
+}
+#progress-container {
+  position: absolute;
+  left: 13vw;
+  top: 13.5vh;
+  width: 20vw;
+  height: 3vh;
+  background: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 8;
+  user-select: none;
+  transform-origin: center;
+  transition: all 0.4s ease;
+  border: 1px solid rgb(133, 133, 133);
+} 
+#logoExpText {
+  position: absolute;
+  display: none;
+  background-image: url("./image/OIP.jpg");
+  width: 4.5%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  right: 0%;
+  z-index: 11;
+}
+#progress-bar {
+  position: relative;
+  height: 200%;
+  transform: translateY( -90%);
+  background: linear-gradient(90deg, #86a6ff, #0044ff);
+  transition: width 0.4s cubic-bezier(.100,.00,.50,.50);
+  width: 0%;
+  z-index: 9;
+}
+#menuStat {
+  position: relative;
+  top: 15%;
+  left: 2.75%;
+  text-align: center;
+  align-items: center;
+  background: #0044ff;
+  width: 28.25%;
+  height: 80%;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 5vh;
+}
+#interfaceAvatar {
+  display: none;
+  background-color: yellow;
+  position: fixed;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 70vw;
+  height: 70vh;
+}
+
+.shopClose, .statClose, .avatarClose {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  user-select: none;
+}
+
+#menu {
+  margin: 5% 0 0 0;
+  position: absolute;
+  width: 25%;
+  border-radius: 7.5px;
+  height: 45%;
+  top: 25%;
+  left: 2%;
+  transition: all 0.5s ease;
+  user-select: none;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#shop {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 27.5%;
+  border-radius: 7.5px;
+}
+#shop span, #stat span, #avatar span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 150%;
+}
+#stat {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 27.5%;
+  border-radius: 7.5px;
+}
+#avatar {
+  position: relative;
+  width: 100%;
+  height: 27.5%;
+  border-radius: 7.5px;
+  cursor: pointer;
+}
+#play {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 60%;
+  right: 50%;
+  transform: translateX(50%);
+  width: 25%;
+  height: 12.5%;
+  background-color: yellow;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  user-select: none;
+  cursor: pointer;
+  font-size: 150%;
+  border: 1.5px solid black;
+}
+#play span {
+  z-index: 2;
+}
+#play:hover {
+  border:1px solid yellow;
+  background-color: orange;
+  color: white;
+}
+#pause {
+  display: none;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  border: none;
+  color: red;
+  pointer-events: auto;
+  user-select: none;
+  transform: translateY(-75%);
+  z-index: 11;
+}
+.monster-model {
+  position: absolute;
+  background: red;
+  width: 30px;
+  height : 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: none;
+  justify-content: center;
+  align-items: top;
+}
+.monsterEyeLeft-model{
+  width: 10px;
+  height: 10px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 100%;
+  margin: 2px 0 0 1.5px;
+  overflow: hidden;
+  --animation: running;
+}
+.monsterPupilLeft-model{
+  position: relative;
+  transform: translate(-6.5px, 7.5px);
+  width: 2px;
+  height: 2px;
+  background: black;
+  border-radius: 100%;
+}
+.monsterEyeRight-model{
+  width: 10px;
+  height: 10px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 100%;
+  margin: 2px 0 0 1.5px;
+  overflow: hidden;
+  --animation: running;
+}
+.monsterPupilRight-model{
+  transform: translate(-6.5px, 7.5px);
+  position: relative;
+  width: 2px;
+  height: 2px;
+  background: black;
+  border-radius: 100%;
+}
+.monsterEyeLeft-model::before, .monsterEyeRight-model::before {
+  content: "";
+  display: block;
+  background: yellow;
+  height: 0%;
+  border-radius: 100%;
+  animation: openEye 8s ease-in-out var(--delay, 3s ) forwards infinite;
+  animation-play-state: var(--animation);
+}
+#playerBody{
+  display: none;
+  position: fixed;
+  background: red;
+  border-radius: 100%;
+  width: 65px;
+  height : 60px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#playerEyeLeft, #playerEyeRight {
+  position: relative;
+  display: inline-block;
+  background: none;
+  border: 1px solid black;
+  background: rgb(255, 51, 51);
+  border-radius: 100%;
+  left: 15%;
+  transform: translateX(-24%);
+  top: 15%;
+  width: 25px;
+  height: 25px;
+  z-index: 2;
+  overflow: hidden;
+  --animation: running;
+}
+#playerEyeRight::before, #playerEyeLeft::before {
+  content: "";
+  display: block;
+  background: yellow;
+  height: 0%;
+  border-radius: 100%;
+  animation: openEye 8s ease-in-out 3s forwards infinite;
+  animation-play-state: var(--animation);
+}
+#playerPupilLeft, #playerPupilRight {
+  position: absolute;
+  display: inline-block;
+  background: black;
+  z-index: 1;
+  border-radius: 100%;
+  width: 7.5px;
+  height: 7.5px;
+  top: 37.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+#playerPupilLeft {
+  margin-left: -25%;
+  z-index: 3;
+}
+#playerPupilRight {
+  margin-left: 25%;
+  z-index: 3;
+}
+#playerHeal {
+  position: relative;
+  z-index: 1;
+  display: block;
+  background: white;
+  border-radius: 5px;
+  width: 80px;
+  height: 10px;
+  top: -75%;
+  right: 10%;
+  border: 1px solid black;
+  overflow: hidden;
+}
+#playerHealText {
+  position: relative;
+  display: block;
+  background: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: black;
+  font-size: 0.69rem;
+  transform: translateY(-110%)
+}
+#playerHealProgressBar {
+  position: relative;
+  display: block;
+  background: green;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+#textPause {
+  display: none;
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 2vh;
+  width: 20vw;
+  height: 9vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 0 0 0;
+  z-index: 13;
+  backdrop-filter: blur(10px);
+}
+#yesPause, #noPause {
+  margin: 6.5px 0 0 10px;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  z-index: 13;
+}
+
+/* !Animations */
+
+@keyframes openInterface {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    width: var(--interfaceWidth);
+    height: var(--interfaceHeight);
+    opacity: 1;
+  }
+}
+@keyframes closeInterface {
+  0% {
+    width: 70vw;
+    height: 70vh;
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+}
+@keyframes openTextPause {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 20vw;
+    height: 9vh;
+  }
+}
+@keyframes closeTextPause {
+  0% {
+    width: 20vw;
+    height: 9vh;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}
+@keyframes openEye {
+  0% {
+    height: 0%;
+  }
+  1% {
+    height: 100%;
+  }
+  2% {
+    height: 0%;
+  }
+  6% {
+    height: 0%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+@keyframes rotateOpen {
+  0% {
+    d: path("M75 0 L225 0 Q250 0 250 25 L250 250 Q250 275 225 275 L75 275 Q50 275 50 250 L50 25 Q50 0 75 0");
+  }
+  100% {
+    d: path("M75 -25 L250 0 Q275 0 275 25 L250 275 Q250 300 225 300 L50 275 Q25 275 25 250 L50 0 Q50 -25 75 -25");
+  }
+}
+@keyframes rotateClose {
+  0% {
+    d: path("M75 -25 L250 0 Q275 0 275 25 L250 275 Q250 300 225 300 L50 275 Q25 275 25 250 L50 0 Q50 -25 75 -25");
+  }
+  100% {
+    d: path("M75 0 L225 0 Q250 0 250 25 L250 250 Q250 275 225 275 L75 275 Q50 275 50 250 L50 25 Q50 0 75 0");
+  }
+}
+/* !Responsive */
+
+@media (max-width: 800px)  {
+  :root {
+    --interfaceWidth: 97.5vw;
+    --interfaceHeight: 97.5vh;
+  }
+  #logoExpText {
+    display: block;
+  }
+  #progress-container {
+    width:  40%;
+    height: 4vh;
+    top: 2.5vh;
+    left: 2.5vw;
+    }
+  #exp {
+    height: 17.5vh;
+  }
+  #menu{
+    width: 35%;
+  }
+  #play{
+    width: 35%;
+    transform: translateX(85%);
+  }
+}

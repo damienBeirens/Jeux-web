@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeux web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="rotate-warning">
+    <svg id="svg" viewBox="0 0 300 275" width="60vw" height="50vh" style="border: 1px solid rgb(0, 0, 0);" >
+      <path id="path" d="M75 0 H225 Q250 0 250 25 V250 Q250 275 225 275 H75 Q50 275 50 250 V25 Q50 0 75 0" fill="NONE"stroke="RED" stroke-width="3"></path>
+    </svg>
+    <p id="textRotateTelephone">Veuillez faire tourner votre téléphone</p>
+  </div>
+  <div id="progress-container">
+      <div id="logoExpText"></div>
+      <div id="lvl">Level : 1</div>
+      <div id="progress-bar"></div>
+  </div>
+  <div id="exp" data-min="100" data-max="1000" data-exp="0">Vous avez 100/1000 exp</div>
+  <div id="interface">
+    <button id="play"><span>Play</span></button>
+    <p id="pause">⏸️</p>
+    <div id="textPause"><span id="textParagraphe"></span>
+      <br><input type="button" id="yesPause" value="Oui">
+      <input type="button" id="noPause" value="Non">
+    </div>
+    <div id="bodyClone"></div>
+    <div id="interfaceGameOver">
+      <div id="backgroundGameOver"></div>
+      <div id="gameOver"><strong>GAME OVER</strong></div>
+      <div id="btnQuit">
+        <button id="quit">QUIT</button>
+        <button id="restart">RESTART</button>
+      </div>
+    </div>
+    <div id="menu">
+        <button id="shop"><span>shop</span></button>
+        <button id="stat"><span>stat</span></button>
+        <button id="avatar"><span>avatar</span></button>
+    </div>
+    <div class="monster-model">
+      <div class="monsterEyeLeft-model"></div>
+        <div class="monsterPupilLeft-model"></div>
+      <div class="monsterEyeRight-model"></div>
+        <div class="monsterPupilRight-model"></div>
+    </div>
+    <div id="playerBody" data-health="100" data-attack="10" data-speed="5">
+      <div id="playerEyeLeft"></div>
+        <div id="playerPupilLeft"></div>
+      <div id="playerEyeRight"></div>
+        <div id="playerPupilRight"></div>
+      <div id="playerHeal">
+        <div id="playerHealProgressBar"></div>
+        <div id="playerHealText"></div>
+      </div>
+    </div>
+  </div>
+  <div id="interfaceShop">
+    <button class="shopClose">X</button>
+    <div id="sliderShop">
+      <div id="sliderPush"></div>
+    </div>
+  </div>
+  <div id="interfaceStat">
+    <button class="statClose">X</button>
+    <input type="range" id="sliderHp" min="100" max="10000" value="100">
+    <input type="range" id="sliderAttack" min="10" max="10000" value="10">
+    <input type="range" id="sliderSpeed" min="5" max="100" value="5">
+    <div id="menuStat">
+      <p id="textPoint">points : <span id="point"></span></p></p>
+      <p id="textHp">hp : <button id="hp">lvl : 100</button></spa></p>
+      <p id="textAtk">attack : <button id="attack">lvl : 10</button></span></p>
+      <p id="textSpeed">speed : <button id="speed">lvl : 5</button></span></p>
+    </div>
+  </div>
+  <div id="interfaceAvatar">
+    <button class="avatarClose">X</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
